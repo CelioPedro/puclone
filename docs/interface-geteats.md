@@ -4,7 +4,50 @@ O Projeto de Interface da solução GetEats apresenta a visão geral da experiê
 
 Além disso, o projeto contempla a perspectiva administrativa, oferecendo telas voltadas à gestão do cardápio, cadastro de produtos e acompanhamento de métricas de desempenho. Dessa forma, a solução GetEats não apenas atende aos requisitos funcionais e não funcionais levantados, mas também oferece suporte à operação dos estabelecimentos parceiros, garantindo eficiência e praticidade no atendimento digital.
 
------------------     Discuta como foram elaboradas para atender os requisitos funcionais, não funcionais e as histórias de usuário descritas na Documentação de Especificação.      ------------------
+# Ambientes de Desenvolvimento e Implantação
+
+## 1. Ambiente de Desenvolvimento
+- **Objetivo:** Onde a equipe vai programar e testar o código.  
+- **Ferramentas/Tecnologias:**  
+  - **VS Code:** editor de código, onde vamos escrever e rodar os testes da aplicação.  
+  - **Linguagens:** HTML, CSS e JavaScript.  
+  - **Controle de versão:** GitHub para salvar e organizar o código.  
+- **Uso no processo:** Cada integrante baixa o projeto do GitHub, cria uma parte do sistema no seu computador, testa no navegador e depois envia as alterações para o repositório.  
+
+---
+
+## 2. Ambiente de Teste / Homologação
+- **Objetivo:** Local usado para testar o sistema antes de colocar no ar.  
+- **Ferramentas/Tecnologias:**  
+  - **GitHub (versão de teste):** para simular como o sistema ficará publicado.  
+  - **VS Code**  
+- **Uso no processo:** Depois que uma parte é criada, a equipe publica em uma versão de teste. Assim, é possível verificar se o sistema funciona bem em diferentes celulares e computadores.  
+
+---
+
+## 3. Ambiente de Produção
+- **Objetivo:** Onde o sistema final ficará disponível para os usuários.  
+- **Ferramentas/Tecnologias:**  
+  - **GitHub Pages:** usado para hospedar a versão final.  
+  - **QR Code:** para que os clientes acessem o cardápio pelo celular.  
+- **Uso no processo:** Quando o sistema estiver pronto e aprovado nos testes, ele será publicado na versão final e acessado pelos clientes via QR Code.  
+
+---
+
+# Organização do Código
+- O código será salvo no GitHub, que guarda o histórico e permite que todos trabalhem juntos.  
+- Alterações serão feitas em cópias separadas e depois juntadas ao projeto principal.  
+
+---
+
+# Gestão do Projeto
+- A equipe vai usar ferramentas digitais para organizar as tarefas.  
+- As etapas serão divididas em:  
+  - **A Fazer →** tarefas que ainda não começaram.  
+  - **Em Andamento →** o que está sendo desenvolvido.  
+  - **Em Teste →** o que está sendo verificado.  
+  - **Concluído →** tarefas prontas.  
+- O grupo terá encontros rápidos semanais para alinhar o que já foi feito e o que falta.  
 
 ---
 
@@ -44,6 +87,9 @@ Além disso, o projeto contempla a perspectiva administrativa, oferecendo telas 
 ---
 
 ## Wireframes – Descrição das Telas
+
+![UserFlow](img/wireframe-geteats.jpg)
+
 
 ### Tela de Login (Frame 01)  
 - **Função:** Permitir que o usuário acesse sua conta para visualizar o cardápio personalizado e gerenciar pedidos.  
@@ -100,7 +146,7 @@ Além disso, o projeto contempla a perspectiva administrativa, oferecendo telas 
 
 ---
 
-### Tela de Login do Administrador (conjunto AMD)  
+### Tela de Login do Administrador (conjunto adm 01)  
 - **Função:** Permitir acesso de administradores ao painel de gestão do cardápio.  
 - **Elementos principais:**  
   - Campos de login (e-mail e senha).  
@@ -109,7 +155,7 @@ Além disso, o projeto contempla a perspectiva administrativa, oferecendo telas 
 
 ---
 
-### Tela de Gerenciamento de Produtos (Frame 26)  
+### Tela de Gerenciamento de Produtos (Frame adm 02)  
 - **Função:** Listar produtos cadastrados para edição ou exclusão.  
 - **Elementos principais:**  
   - Lista de produtos com nome e preço.  
@@ -119,7 +165,7 @@ Além disso, o projeto contempla a perspectiva administrativa, oferecendo telas 
 
 ---
 
-### Tela de Cadastro de Produto (Frame 27)  
+### Tela de Cadastro de Produto (Frame adm 03)  
 - **Função:** Adicionar novos produtos ao cardápio.  
 - **Elementos principais:**  
   - Campos de nome, descrição, preço, categoria e upload de imagem.  
@@ -128,7 +174,7 @@ Além disso, o projeto contempla a perspectiva administrativa, oferecendo telas 
 
 ---
 
-### Tela de Estatísticas / Relatórios (Frame 28)  
+### Tela de Estatísticas / Relatórios (Frame adm 04)  
 - **Função:** Exibir dados de desempenho para o administrador.  
 - **Elementos principais:**  
   - Gráficos (barras, linha) com informações de vendas.  

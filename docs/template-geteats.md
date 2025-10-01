@@ -6,6 +6,10 @@ Layout padrão do sistema.
 
  Abaixo estão as guias de estilo utilizadas no projeto.
 
+ # Mais Detalhes
+Para visualizar o protótipo no figma, acesse o link abaixo:  
+[👉 Clique aqui para ver o protótipo](https://www.figma.com/design/gbOOhTUX1gKRxdkRQmgSwr/Cardapio-ON?node-id=1-2&t=tqgvnE2aVUitlV4d-1)
+
 ## Design
 
 **Layout geral (desktop / mobile):**
