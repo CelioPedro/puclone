@@ -7,7 +7,7 @@ projeto-geteats/
 │   ├─ admin-cardapio.html     ← Lista de produtos e categorias (renomeado de cardapio.html)
 │   ├─ produto.html            ← Detalhes de um produto (ingredientes, tamanhos)
 │   ├─ carrinho.html           ← Itens selecionados pelo cliente
-│   ├─ pagamento.html          ← Escolha da forma de pagamento
+│   ├─ pagamentomobile.html    ← Escolha da forma de pagamento
 │   ├─ pedido-status.html      ← Acompanhamento do pedido
 │   ├─ admin-dashboard.html    ← Estatísticas e visão geral (ADM)
 │   └─ ... (outras telas, se necessário)
