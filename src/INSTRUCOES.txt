@@ -4,13 +4,12 @@ projeto-geteats/
 ├─ admin.html                  ← Página de login do administrador
 │
 ├─ paginas/                    ← Cada tela do sistema em HTML
-│   ├─ cardapio.html           ← Lista de produtos e categorias
+│   ├─ admin-cardapio.html     ← Lista de produtos e categorias (renomeado de cardapio.html)
 │   ├─ produto.html            ← Detalhes de um produto (ingredientes, tamanhos)
 │   ├─ carrinho.html           ← Itens selecionados pelo cliente
 │   ├─ pagamento.html          ← Escolha da forma de pagamento
 │   ├─ pedido-status.html      ← Acompanhamento do pedido
 │   ├─ admin-dashboard.html    ← Estatísticas e visão geral (ADM)
-│   ├─ admin-cardapio.html     ← CRUD de produtos (criar, editar, excluir)
 │   └─ ... (outras telas, se necessário)
 │
 ├─ recursos/

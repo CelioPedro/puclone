@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Pagamento</title>
-<link rel="stylesheet" href="../recursos/css/principal.css">
-<style>
-
 * {
   box-sizing: border-box;
 }
@@ -21,7 +12,7 @@ body {
   min-height: 100vh;
 }
 
-.container {
+.form-card {
   width: 90vw;
   max-width: 400px;
   min-width: 320px;
@@ -35,9 +26,9 @@ body {
   align-items: center;
 }
 
-.header {
-  position: relative;
-  top: 120px;
+.form-card__header {
+  position: fixed;
+  top: 0;
   left: 0;
   width: 100vw;
   height: 10rem;
@@ -47,17 +38,18 @@ body {
   z-index: 1;
 }
 
-.header-bg {
+.form-card__header-bg {
   position: absolute;
   top: -150px;
   left: 50%;
   width: 150%;
   height: 300px;
   transform: translateX(-50%);
+  background: linear-gradient(180deg, var(--color-secondaryADM) 48%, var(--color-primaryADM) 100%);
   border-radius: 50%;
 }
 
-.header img.logo {
+.form-card__header img.logo {
   position: relative;
   width: 12rem;
   user-select: none;
@@ -65,18 +57,18 @@ body {
   margin-top: 1rem;
 }
 
-.notch {
+.form-card__notch {
   display: none;
 }
 
 .form-card__title {
   margin-top: 10.5rem;
   margin-bottom: 1.875rem;
-  font-size: 1rem;
+  font-size: 0.875rem;
   color: var(--color-text-light);
 }
 
-label {
+.input-field__label {
   font-weight: bold;
   font-size: 1rem;
   color: var(--color-text);
@@ -85,12 +77,12 @@ label {
   margin-bottom: 0.5rem;
 }
 
-.input-group {
+.input-field {
   width: 100%;
   position: relative;
 }
 
-.input-box {
+.input-field__input {
   width: 100%;
   height: 4rem;
   background: var(--color-input-bg);
@@ -101,7 +93,7 @@ label {
   padding: 0 0.9375rem;
 }
 
-.input-box input {
+.input-field__input input {
   border: none;
   outline: none;
   font-size: 1rem;
@@ -110,18 +102,16 @@ label {
   background: transparent;
 }
 
-.icon-placeholder {
+.input-field__icon {
   width: 1.25rem;
   height: 1.25rem;
-  background: #9999b0;
   border-radius: 0.25rem;
   margin-right: 0.625rem;
 }
 
-.eye-placeholder {
+.input-field__eye {
   width: 1.25rem;
   height: 1.25rem;
-  background: #9999b0;
   border-radius: 50%;
   margin-left: 2rem;
 }
@@ -148,8 +138,8 @@ label {
 }
 
 .checkbox-group input[type="checkbox"]#remember:checked {
-  background-color: var(--color-primary) !important;
-  border-color: var(--color-primary) !important;
+  background-color: var(--color-primaryADM) !important;
+  border-color: var(--color-primaryADM) !important;
 }
 
 .checkbox-group input[type="checkbox"]#remember:checked::after {
@@ -173,10 +163,10 @@ label {
   cursor: pointer;
 }
 
-.btn-red {
+.btn.btn--primario {
   width: 100%;
   height: 4rem;
-  background: linear-gradient(180deg, var(--color-primary) 48%, var(--color-secondary) 100%);
+  background: linear-gradient(176deg, var(--color-primaryADM) 48%, var(--color-secondaryADM) 100%);
   border-radius: 0.9375rem;
   border: none;
   color: white;
@@ -194,7 +184,7 @@ label {
   cursor: pointer;
 }
 
-.separator {
+.form-card__separator {
   width: 100%;
   display: flex;
   align-items: center;
@@ -203,19 +193,19 @@ label {
   font-size: 0.875rem;
 }
 
-.separator::before,
-.separator::after {
+.form-card__separator::before,
+.form-card__separator::after {
   content: "";
   flex-grow: 1;
   height: 1px;
   background: #ddd;
 }
 
-.separator::before {
+.form-card__separator::before {
   margin-right: 0.625rem;
 }
 
-.separator::after {
+.form-card__separator::after {
   margin-left: 0.625rem;
 }
 
@@ -235,15 +225,14 @@ label {
   justify-content: center;
 }
 
-.social-icon-placeholder {
+.social-btn__icon {
   width: 1.25rem;
   height: 1.25rem;
-  background: var(--color-text);
   border-radius: 0.1875rem;
   margin-right: 0.625rem;
 }
 
-.bottom-text {
+.form-card__bottom-text {
   margin-top: 3.125rem;
   font-size: 0.875rem;
   color: var(--color-text-light);
@@ -254,11 +243,11 @@ label {
 /* Media Queries - Login Page */
 
 @media (max-width: 480px) {
-  .header {
+  .form-card__header {
     height: 10rem;
   }
 
-  .header img.logo {
+  .form-card__header img.logo {
     width: 7rem;
     transform: translateY(2rem);
   }
@@ -269,12 +258,12 @@ label {
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
-  .container {
+  .form-card {
     max-width: 500px;
     padding: 0 1.5rem 1.5rem 1.5rem;
   }
 
-  .header img.logo {
+  .form-card__header img.logo {
     width: 10rem;
     transform: translateY(3rem);
     margin-top: 3rem;
@@ -297,19 +286,19 @@ label {
   }
 
   @media (orientation: landscape) {
-    .container {
+    .form-card {
       min-height: 600px;
     }
   }
 }
 
 @media (min-width: 769px) {
-  .header img.logo {
+  .form-card__header img.logo {
     width: 8rem;
     transform: translateY(2rem);
   }
 
-  .container {
+  .form-card {
     max-width: 500px;
   }
 
@@ -319,12 +308,12 @@ label {
 }
 
 @media (min-width: 820px) {
-  .container {
+  .form-card {
     max-width: 600px;
     padding: 0 1.5rem 1.5rem 1.5rem;
   }
 
-  .header img.logo {
+  .form-card__header img.logo {
     width: 8rem;
   }
 
@@ -346,12 +335,12 @@ label {
 }
 
 @media (min-width: 1024px) {
-  .container {
+  .form-card {
     max-width: 800px;
     padding: 0 3rem 3rem 3rem;
   }
 
-  .header img.logo {
+  .form-card__header img.logo {
     width: 8rem;
   }
 
@@ -371,55 +360,5 @@ label {
     font-size: 1rem;
   }
 }
-</style>
-</head>
-<body>
-  <div class="form-card">
-    <div class="form-card__header">
-      <div class="form-card__header-bg"></div>
-      <img src="../assets/logos/GetEatsSVG.svg" alt="Get Eats Logo" class="logo logo--pequeno" />
-    </div>
 
-    <div class="form-card__notch"></div>
-    <div class="form-card__title">Pagamento</div>
 
-    <label class="input-field__label" for="cartao">Número do cartão</label>
-    <div class="input-field">
-      <div class="input-field__input">
-        
-        <input type="text" id="cartao" placeholder="1234 4567 8910 1112" />
-      </div>
-    </div>
-
-    <label class="input-field__label" for="expiracao">Data de expiração</label>
-    <div class="input-field">
-      <div class="input-field__input">
-        <input type="text" id="expiracao" placeholder="MM/AA" />
-      </div>
-    </div>
-
-    <label class="input-field__label" for="cvv">CVV</label>
-    <div class="input-field">
-      <div class="input-field__input">
-        <input type="text" id="cvv" placeholder="123" />
-      </div>
-    </div>
-
-    
-
-    <button class="btn btn--primario">Pagar</button>
-
-    <div class="form-card__forgot-password">Alterar forma de pagamento</div>
-
-    <div class="form-card__separator">ou</div>
-
-    <button class="social-btn">
-      <div class="social-btn__icon"></div>
-      Pagar com PIX
-    </button>
-
-    <div class="form-card__bottom-text">Pagamento seguro</div>
-  </div>
-
-</body>
-</html>
