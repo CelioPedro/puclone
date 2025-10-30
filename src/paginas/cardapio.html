@@ -346,11 +346,29 @@
       align-items: center;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       z-index: 20;
+      cursor: pointer;
     }
 
     .cart-float .cart-icon {
       width: 1.5rem;
       height: 1.5rem;
+    }
+
+    .cart-float .cart-counter {
+      position: absolute;
+      top: -0.5rem;
+      right: -0.5rem;
+      background: #FFD700;
+      color: #000;
+      border-radius: 50%;
+      width: 1.5rem;
+      height: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: bold;
+      display: none;
     }
 
     /* Footer Navegação */
@@ -595,7 +613,7 @@
           <div class="add-btn">+</div>
         </div>
       </a>
-      
+
       <a href="australiano.html" style="text-decoration: none; color: inherit;">
         <div class="product-card">
           <div class="image" style="background-image: url('../assets/imagen/Australiano.jpg');"></div>
@@ -732,6 +750,7 @@
   </div>
   <div class="cart-float">
     <img src="../assets/icons/Cart.svg" alt="Carrinho" class="cart-icon">
+    <div class="cart-counter">0</div>
   </div>
   <div class="footer-nav"> <a href="#" class="nav-item active">
       <img src="../assets/icons/HomeFooter.svg" alt="Início" class="nav-icon"> Início
@@ -742,6 +761,7 @@
     </a> <a href="#" class="nav-item">
       <img src="../assets/icons/PerfilFooter.svg" alt="Perfil" class="nav-icon"> Perfil
     </a> </div>
+  <script src="../recursos/js/carrinho.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const backIcon = document.querySelector('.back-icon');
@@ -768,6 +788,101 @@
           }
         });
       });
+
+      // Funcionalidade do botão flutuante do carrinho
+      const cartFloatBtn = document.querySelector('.cart-float');
+      if (cartFloatBtn) {
+        cartFloatBtn.addEventListener('click', function() {
+          window.location.href = 'carrinho.html';
+        });
+      }
+
+      // Mapa de preços dos produtos
+      const precosProdutos = {
+        'X Bacon': 32.50,
+        'Chicken Burguer': 28.00,
+        'Australiano': 35.00,
+        'Cream Burguer': 30.00,
+        'Crispy Burguer': 29.00,
+        'X Burguer': 25.00,
+        'Cheddar Duplo': 34.00,
+        'Artesanal Duplo': 38.00,
+        'Água': 3.00,
+        'Coca-Cola': 5.00,
+        'Sprite': 5.00,
+        'Suco de Laranja': 6.00,
+        'Suco de Melancia': 6.00
+      };
+
+      // Funcionalidade dos botões de adicionar ao carrinho
+      function adicionarProdutoAoCarrinho(card) {
+        const titulo = card.querySelector('.title').textContent;
+        const subtitulo = card.querySelector('.subtitle').textContent;
+        const imagem = card.querySelector('.image').style.backgroundImage;
+        const imagemUrl = imagem.replace('url("', '').replace('")', '');
+
+        // Obter preço do mapa de preços
+        const preco = precosProdutos[titulo] || 0;
+
+        // Gerar ID único baseado no título
+        const id = titulo.toLowerCase().replace(/\s+/g, '').replace(/[^a-z0-9]/g, '');
+
+        const produto = {
+          id: id,
+          nome: titulo,
+          preco: preco,
+          quantidade: 1,
+          imagem: imagemUrl,
+          customizacoes: {}
+        };
+
+        carrinhoManager.adicionarItem(produto);
+
+        // Feedback visual
+        const btn = card.querySelector('.add-btn') || card.querySelector('.add-btn-tablet');
+        if (btn) {
+          const textoOriginal = btn.textContent || btn.innerHTML;
+          btn.textContent = '✓';
+          btn.style.background = '#4CAF50';
+          setTimeout(() => {
+            btn.innerHTML = textoOriginal;
+            btn.style.background = '';
+          }, 1000);
+        }
+      }
+
+      // Adicionar event listeners aos botões
+      document.querySelectorAll('.add-btn, .add-btn-tablet').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          const card = this.closest('.product-card');
+          if (card) {
+            adicionarProdutoAoCarrinho(card);
+          }
+        });
+      });
+
+      // Atualizar contador do carrinho
+      function atualizarContadorCarrinho() {
+        const contador = document.querySelector('.cart-counter');
+        const totalItens = carrinhoManager.obterTotalItens();
+
+        if (contador) {
+          if (totalItens > 0) {
+            contador.textContent = totalItens;
+            contador.style.display = 'flex';
+          } else {
+            contador.style.display = 'none';
+          }
+        }
+      }
+
+      // Inicializar contador
+      atualizarContadorCarrinho();
+
+      // Escutar mudanças no carrinho
+      window.addEventListener('carrinhoAtualizado', atualizarContadorCarrinho);
     });
   </script>
 </body>

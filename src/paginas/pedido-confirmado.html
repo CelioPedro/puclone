@@ -258,7 +258,18 @@ body {
     </div>
 
     <button class="btn">Acompanhar Pedido</button>
-    <button class="btn">Voltar ao Início</button>
+    <button class="btn" id="back-to-home">Voltar ao Início</button>
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const backToHomeBtn = document.getElementById('back-to-home');
+      if (backToHomeBtn) {
+        backToHomeBtn.addEventListener('click', function() {
+          window.location.href = 'cardapio.html';
+        });
+      }
+    });
+  </script>
 </body>
 </html>

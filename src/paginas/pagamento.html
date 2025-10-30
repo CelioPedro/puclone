@@ -413,13 +413,66 @@ label {
 
     <div class="form-card__separator">ou</div>
 
-    <button class="social-btn">
+    <button class="social-btn" id="pix-btn">
       <div class="social-btn__icon"></div>
       Pagar com PIX
     </button>
 
+    <!-- Seção para exibir QR Code e Chave PIX -->
+    <div id="pix-modal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90vw; max-width: 400px; padding: 2rem; background: white; border-radius: 0.9375rem; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; z-index: 1000;">
+      <h3 style="margin-bottom: 1.5rem; font-size: 1.25rem; color: #222222;">QR Code PIX</h3>
+      <div id="qrcode" style="margin-bottom: 1.5rem; display: flex; justify-content: center;"></div>
+      <p style="margin-bottom: 1.5rem; font-size: 1rem; color: #666666;"><strong>Chave PIX:</strong> <span id="pix-key"></span></p>
+      <button class="btn btn--primario" id="confirm-pix" style="width: 100%;">Confirmar Pagamento</button>
+    </div>
+
     <div class="form-card__bottom-text">Pagamento seguro</div>
   </div>
 
+  <!-- Incluir biblioteca QRCode.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const pixBtn = document.getElementById('pix-btn');
+      const pixModal = document.getElementById('pix-modal');
+      const qrcodeDiv = document.getElementById('qrcode');
+      const pixKeySpan = document.getElementById('pix-key');
+      const confirmPixBtn = document.getElementById('confirm-pix');
+
+      pixBtn.addEventListener('click', function() {
+        // Gerar chave PIX aleatória (simulando um UUID)
+        const pixKey = generateRandomKey();
+        pixKeySpan.textContent = pixKey;
+
+        // Limpar QR code anterior
+        qrcodeDiv.innerHTML = '';
+
+        // Gerar QR code com a chave PIX
+        new QRCode(qrcodeDiv, {
+          text: pixKey,
+          width: 128,
+          height: 128
+        });
+
+        // Mostrar a modal
+        pixModal.style.display = 'block';
+      });
+
+      confirmPixBtn.addEventListener('click', function() {
+        // Redirecionar para página de confirmação de pedido
+        window.location.href = 'pedido-confirmado.html';
+      });
+
+      function generateRandomKey() {
+        // Gerar uma string aleatória de 32 caracteres (simulando chave PIX)
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let result = '';
+        for (let i = 0; i < 32; i++) {
+          result += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return result;
+      }
+    });
+  </script>
 </body>
 </html>
