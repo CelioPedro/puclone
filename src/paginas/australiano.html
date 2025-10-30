@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="../recursos/css/principal.css">
   <link rel="stylesheet" href="../recursos/css/paginas/produto.css">
   <script src="../recursos/js/produto.js"></script>
+
 </head>
 
 <body>
@@ -15,7 +16,7 @@
     <img src="../assets/icons/Voltar.svg" alt="Voltar" class="back-icon">
     <img src="../assets/icons/PerfilHeader.svg" alt="Perfil" class="profile-icon">
   </div>
-  <div class="product-image" style="background-image: url('../assets/imagen/XBacon.jpg'); background-size: cover; background-position: center; width: 100vw; height: 44vh; position: absolute; top: 0; left: 0; z-index: 1;">
+  <div class="product-image" style="background-image: url('../assets/imagen/Australiano.jpg'); background-size: cover; background-position: center; width: 100vw; height: 44vh; position: absolute; top: 0; left: 0; z-index: 1;">
     <div class="floating-icon">
       <img src="../assets/icons/s2Produto.svg" alt="Produto">
     </div>
@@ -30,11 +31,11 @@
   </div>
 
   <div class="product-info">
-    <h1 class="product-title">X Bacon</h1>
+    <h1 class="product-title">Australiano</h1>
     <div class="product-rating">
-       <span class="stars">★★★★★</span> 4.8 (148 avaliações)
+       <span class="stars">★★★★★</span> 4.9 (152 avaliações)
     </div>
-    <p class="product-description">Uma explosão de sabor em cada mordida! Pão macio, hambúrguer artesanal grelhado no ponto certo, fatias generosas de bacon crocante, queijo derretido, alface fresca, tomate suculento e aquele toque especial de maionese da casa. especial.</p>
+    <p class="product-description">O clássico australiano com toque brasileiro! Hambúrguer suculento, queijo cheddar derretido, bacon crocante, ovo, alface, tomate e molho barbecue especial. Uma combinação perfeita de sabores intensos.</p>
     <div class="add-ingredients">
       <h2>Adicionar ingrediente:</h2>
       <div class="ingredients-buttons">
@@ -72,26 +73,28 @@
       </div>
     </div>
 
-    <div class="add-accompaniments">
-      <h2>Adicionar acompanhamento:</h2>
-      <div class="accompaniments-buttons">
-        <button class="accompaniment-btn">Batata Frita</button>
-        <button class="accompaniment-btn">Onion Rings</button>
-        <button class="accompaniment-btn">Salada</button>
-        <button class="accompaniment-btn">Salada</button><button class="accompaniment-btn">Salada</button><button class="accompaniment-btn">Salada</button>
-      </div>
-    </div>
+
 
   
   </div>
 
   <div class="footer-nav">
-    <div class="price">R$32,50</div>
+    <div class="price">R$35,00</div>
     <button class="add-to-cart-btn">
       <img src="../assets/icons/Cart.svg" alt="Cart" class="cart-icon">
       Adicionar
     </button>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const backIcon = document.querySelector('.back-icon');
+      if (backIcon) {
+        backIcon.addEventListener('click', function() {
+          window.history.back();
+        });
+      }
+    });
+  </script>
 </body>
 
 </html>

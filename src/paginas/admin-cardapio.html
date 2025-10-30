@@ -127,7 +127,17 @@
     </a>
     <a href="#" class="nav-item">
       <img src="../assets/icons/PerfilFooter.svg" alt="Perfil" class="nav-icon"> Perfil
-    </a> </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const backIcon = document.querySelector('.back-icon');
+      if (backIcon) {
+        backIcon.addEventListener('click', function() {
+          window.history.back();
+        });
+      }
+    });
+  </script>
 </body>
 
 </html>

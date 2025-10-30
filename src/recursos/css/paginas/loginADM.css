@@ -264,8 +264,9 @@ body {
   }
 
   .form-card__header img.logo {
-    width: 8rem;
-    transform: translateY(2rem);
+    width: 10rem;
+    transform: translateY(3rem);
+    margin-top: 3rem;
   }
 
   .form-card__title {

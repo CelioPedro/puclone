@@ -113,10 +113,14 @@ body {
 }
 
 .product-info {
+  max-height: fit-content;
   position: absolute;
   top: 50vh;
+  bottom: 50vh;
   left: 2rem;
+  right: 2rem;
   z-index: 2;
+  margin-bottom: 200rem;
 }
 
 .product-title {
@@ -266,7 +270,7 @@ body {
 }
 
 .add-accompaniments {
-  margin-top: 1.5rem;
+  margin-top: 5rem;
 }
 
 .add-accompaniments h2 {
