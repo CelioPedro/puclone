@@ -1,0 +1,86 @@
+/* Estilos para a página de produto */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+.product-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 36vh;
+  background-image: url('../../assets/imagen/XBacon.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 0 0 58px 0px;
+  z-index: 1;
+}
+
+.floating-icon {
+  position: absolute;
+  bottom: -18px;
+  right: 55px;
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+.floating-icon img {
+  width: 21px;
+  height: 18px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 10rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  z-index: 2;
+}
+
+.header .back-icon {
+  margin-top: -50px;
+  margin-left: 40px;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: relative;
+  z-index: 11;
+}
+
+.header .profile-icon {
+  margin-top: -50px;
+  margin-right: 40px;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: relative;
+  z-index: 8;
+}
+
+.footer-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100px;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
