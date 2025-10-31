@@ -46,6 +46,12 @@ class AuthManager {
   // Logout
   logout() {
     localStorage.removeItem(this.CURRENT_USER_KEY);
+    // Limpar carrinho do usuário ao fazer logout
+    const usuarioLogado = this.obterUsuarioLogado();
+    if (usuarioLogado) {
+      const chaveCarrinho = `carrinho_geteats_${usuarioLogado.email}`;
+      localStorage.removeItem(chaveCarrinho);
+    }
   }
 
   // Atualizar dados do usuário logado

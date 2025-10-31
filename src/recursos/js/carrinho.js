@@ -5,6 +5,7 @@ class CarrinhoManager {
         this.carrinho = [];
         this.cupomAplicado = null;
         this.taxaEntrega = 5.00; // Taxa fixa de entrega
+        this.endereco = null; // Endereço de entrega
         this.carregarCarrinho();
     }
 
@@ -106,20 +107,50 @@ class CarrinhoManager {
 
     // Salvar carrinho no localStorage
     salvarCarrinho() {
+        // Verificar se usuário está logado
+        const usuarioLogado = authManager.obterUsuarioLogado();
+        let chaveCarrinho;
+        if (usuarioLogado) {
+            chaveCarrinho = `carrinho_geteats_${usuarioLogado.email}`;
+        } else {
+            // Usar chave genérica para usuários não logados
+            chaveCarrinho = 'carrinho_geteats';
+        }
+
         const dadosCarrinho = {
             itens: this.carrinho,
-            cupom: this.cupomAplicado
+            cupom: this.cupomAplicado,
+            endereco: this.endereco
         };
-        localStorage.setItem('carrinho_geteats', JSON.stringify(dadosCarrinho));
+        localStorage.setItem(chaveCarrinho, JSON.stringify(dadosCarrinho));
     }
 
     // Carregar carrinho do localStorage
     carregarCarrinho() {
-        const dadosSalvos = localStorage.getItem('carrinho_geteats');
+        // Verificar se usuário está logado
+        const usuarioLogado = authManager.obterUsuarioLogado();
+        if (!usuarioLogado) {
+            // Se não estiver logado, usar carrinho genérico (compatibilidade)
+            const dadosSalvos = localStorage.getItem('carrinho_geteats');
+            if (dadosSalvos) {
+                const dados = JSON.parse(dadosSalvos);
+                this.carrinho = dados.itens || [];
+                this.cupomAplicado = dados.cupom || null;
+                this.endereco = dados.endereco || null;
+            }
+            return;
+        }
+
+        const chaveCarrinho = `carrinho_geteats_${usuarioLogado.email}`;
+        const dadosSalvos = localStorage.getItem(chaveCarrinho);
         if (dadosSalvos) {
             const dados = JSON.parse(dadosSalvos);
             this.carrinho = dados.itens || [];
             this.cupomAplicado = dados.cupom || null;
+            this.endereco = dados.endereco || usuarioLogado.endereco; // Usar endereço do perfil se não houver no carrinho
+        } else {
+            // Primeiro acesso: carregar endereço do perfil
+            this.endereco = usuarioLogado.endereco;
         }
     }
 
@@ -127,8 +158,21 @@ class CarrinhoManager {
     limparCarrinho() {
         this.carrinho = [];
         this.cupomAplicado = null;
+        // Não limpar endereço, manter o último usado
         this.salvarCarrinho();
         this.atualizarInterface();
+    }
+
+    // Alterar endereço de entrega
+    alterarEndereco(novoEndereco) {
+        this.endereco = novoEndereco;
+        this.salvarCarrinho();
+        this.atualizarInterface();
+    }
+
+    // Obter endereço atual
+    obterEndereco() {
+        return this.endereco;
     }
 
     // Obter quantidade total de itens
@@ -150,6 +194,9 @@ class CarrinhoManager {
     atualizarInterface() {
         // Este método será sobrescrito nas páginas que usam o carrinho
         console.log('Carrinho atualizado:', this.carrinho);
+
+        // Disparar evento personalizado para atualizar outras partes da interface
+        window.dispatchEvent(new CustomEvent('carrinhoAtualizado'));
     }
 
     // Obter resumo do carrinho

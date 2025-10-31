@@ -568,7 +568,7 @@
     <div class="header-bg"></div>
     <img src="../assets/icons/Voltar.svg" alt="Voltar" class="back-icon">
     <img src="../assets/logos/GetEatsSVG.svg" alt="Get Eats Logo" class="logo logo--pequeno" />
-    <img src="../assets/icons/PerfilHeader.svg" alt="Perfil" class="profile-icon">
+    <img src="../assets/icons/PerfilHeader.svg" alt="Perfil" class="profile-icon" id="profile-link">
   </div>
   <div class="search-bar">
     <img src="../assets/icons/Busca.svg" alt="Buscar" class="search-icon"> <input type="text" placeholder="Buscar no cardápio..." />
@@ -761,6 +761,7 @@
     </a> <a href="#" class="nav-item">
       <img src="../assets/icons/PerfilFooter.svg" alt="Perfil" class="nav-icon"> Perfil
     </a> </div>
+  <script src="../recursos/js/auth.js"></script>
   <script src="../recursos/js/carrinho.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -851,7 +852,7 @@
         }
       }
 
-      // Adicionar event listeners aos botões
+      // Add event listeners directly to buttons to prevent link navigation
       document.querySelectorAll('.add-btn, .add-btn-tablet').forEach(btn => {
         btn.addEventListener('click', function(e) {
           e.preventDefault();
@@ -929,6 +930,14 @@
 
       // Aplicar filtro inicial
       applyFilters();
+
+      // Event listener para o ícone de perfil
+      const profileLink = document.getElementById('profile-link');
+      if (profileLink) {
+        profileLink.addEventListener('click', function() {
+          window.location.href = 'perfil.html';
+        });
+      }
     });
   </script>
 </body>
