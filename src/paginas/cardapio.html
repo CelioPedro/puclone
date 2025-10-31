@@ -221,7 +221,7 @@
       min-width: 350px;
       display: flex;
       flex-direction: column;
-      margin-bottom: 4rem;
+      margin-bottom: 6.5rem;
       gap: 1.5rem;
     }
 
@@ -582,10 +582,10 @@
         <div class="rating"> <span class="stars">★★★★★</span> 4.9 • 89 avaliações </div>
       </div>
     </div>
-    <div class="categories"> <a href="#" class="active">Favoritos</a> <a href="#">Novidades</a> <a href="#">Entrega
-        Grátis</a> <a href="#">Promoções</a> <a href="#">Hambúrgueres</a> <a href="#">Bebidas</a> <div class="categories-line"></div></div>
+    <div class="categories"> <a href="#" data-category="favoritos" class="active">Favoritos</a> <a href="#" data-category="novidades">Novidades</a> <a href="#" data-category="entrega-gratis">Entrega
+        Grátis</a> <a href="#" data-category="promocoes">Promoções</a> <a href="#" data-category="hamburgueres">Hambúrgueres</a> <a href="#" data-category="bebidas">Bebidas</a> <div class="categories-line"></div></div>
     <div class="products">
-      <a href="xbacon.html" style="text-decoration: none; color: inherit;">
+      <a href="xbacon.html" style="text-decoration: none; color: inherit;" data-categoria="favoritos,entrega-gratis,promocoes,hamburgueres">
         <div class="product-card">
           <div class="discount-badge">
             <img src="../assets/icons/Percent.svg" alt="Percent" class="percent-icon">
@@ -601,7 +601,7 @@
           <div class="add-btn">+</div>
         </div>
       </a>
-      <a href="chickenburguer.html" style="text-decoration: none; color: inherit;">
+      <a href="chickenburguer.html" style="text-decoration: none; color: inherit;" data-categoria="favoritos,entrega-gratis,hamburgueres">
         <div class="product-card">
           <div class="image" style="background-image: url('../assets/imagen/ChickenBurguer.jpg');"></div>
           <div class="details">
@@ -614,7 +614,7 @@
         </div>
       </a>
 
-      <a href="australiano.html" style="text-decoration: none; color: inherit;">
+      <a href="australiano.html" style="text-decoration: none; color: inherit;" data-categoria="favoritos,entrega-gratis,hamburgueres">
         <div class="product-card">
           <div class="image" style="background-image: url('../assets/imagen/Australiano.jpg');"></div>
           <div class="details">
@@ -626,7 +626,7 @@
           <div class="add-btn">+</div>
         </div>
       </a>
-      <a href="creamburguer.html" style="text-decoration: none; color: inherit;">
+      <a href="creamburguer.html" style="text-decoration: none; color: inherit;" data-categoria="hamburgueres,novidades">
         <div class="product-card">
           <div class="image" style="background-image: url('../assets/imagen/CreamBurguer.jpg');"></div>
           <div class="details">
@@ -638,7 +638,7 @@
           <div class="add-btn">+</div>
         </div>
       </a>
-      <a href="crispyburguer.html" style="text-decoration: none; color: inherit;">
+      <a href="crispyburguer.html" style="text-decoration: none; color: inherit;" data-categoria="hamburgueres,novidades">
         <div class="product-card">
           <div class="image" style="background-image: url('../assets/imagen/CrispyBurguer.jpg');"></div>
           <div class="details">
@@ -650,7 +650,7 @@
           <div class="add-btn">+</div>
         </div>
       </a>
-      <a href="xburguer.html" style="text-decoration: none; color: inherit;">
+      <a href="xburguer.html" style="text-decoration: none; color: inherit;" data-categoria="hamburgueres">
         <div class="product-card">
           <div class="image" style="background-image: url('../assets/imagen/XBurguer.jpg');"></div>
           <div class="details">
@@ -662,7 +662,7 @@
           <div class="add-btn">+</div>
         </div>
       </a>
-      <a href="cheddarduplo.html" style="text-decoration: none; color: inherit;">
+      <a href="cheddarduplo.html" style="text-decoration: none; color: inherit;" data-categoria="favoritos,hamburgueres">
         <div class="product-card">
           <div class="image" style="background-image: url('../assets/imagen/CheddarDuplo.jpg');"></div>
           <div class="details">
@@ -674,7 +674,7 @@
           <div class="add-btn">+</div>
         </div>
       </a>
-      <a href="artesanalduplo.html" style="text-decoration: none; color: inherit;">
+      <a href="artesanalduplo.html" style="text-decoration: none; color: inherit;" data-categoria="favoritos,hamburgueres">
         <div class="product-card">
           <div class="image" style="background-image: url('../assets/imagen/ArtesanalDuplo.jpg');"></div>
           <div class="details">
@@ -686,7 +686,7 @@
           <div class="add-btn">+</div>
         </div>
       </a>
-      <a href="agua.html" style="text-decoration: none; color: inherit;">
+      <a href="agua.html" style="text-decoration: none; color: inherit;" data-categoria="bebidas">
         <div class="product-card">
           <div class="image" style="background-image: url('../assets/imagen/Agua.jpg');"></div>
           <div class="details">
@@ -698,7 +698,7 @@
           <div class="add-btn">+</div>
         </div>
       </a>
-      <a href="cocacola.html" style="text-decoration: none; color: inherit;">
+      <a href="cocacola.html" style="text-decoration: none; color: inherit;" data-categoria="bebidas">
         <div class="product-card">
           <div class="image" style="background-image: url('../assets/imagen/Coca.jpg');"></div>
           <div class="details">
@@ -710,7 +710,7 @@
           <div class="add-btn">+</div>
         </div>
       </a>
-      <a href="sprite.html" style="text-decoration: none; color: inherit;">
+      <a href="sprite.html" style="text-decoration: none; color: inherit;" data-categoria="bebidas">
         <div class="product-card">
           <div class="image" style="background-image: url('../assets/imagen/Sprite.jpg');"></div>
           <div class="details">
@@ -722,7 +722,7 @@
           <div class="add-btn">+</div>
         </div>
       </a>
-      <a href="sucolaranja.html" style="text-decoration: none; color: inherit;">
+      <a href="sucolaranja.html" style="text-decoration: none; color: inherit;" data-categoria="bebidas,favoritos">
         <div class="product-card">
           <div class="image" style="background-image: url('../assets/imagen/SucoLaranja.jpg');"></div>
           <div class="details">
@@ -734,7 +734,7 @@
           <div class="add-btn">+</div>
         </div>
       </a>
-      <a href="sucomelancia.html" style="text-decoration: none; color: inherit;">
+      <a href="sucomelancia.html" style="text-decoration: none; color: inherit;" data-categoria="bebidas,favoritos">
         <div class="product-card">
           <div class="image" style="background-image: url('../assets/imagen/SucoMelancia.jpg');"></div>
           <div class="details">
@@ -883,6 +883,52 @@
 
       // Escutar mudanças no carrinho
       window.addEventListener('carrinhoAtualizado', atualizarContadorCarrinho);
+
+      // Funcionalidade de filtro por categoria
+      let currentCategory = 'favoritos'; // Começar com Favoritos ativo
+      let currentSearchTerm = '';
+
+      function applyFilters() {
+        const productLinks = document.querySelectorAll('.products a');
+
+        productLinks.forEach(link => {
+          const categorias = link.getAttribute('data-categoria') || '';
+          const title = link.querySelector('.title').textContent.toLowerCase();
+          const matchesCategory = currentCategory === 'all' || categorias.split(',').includes(currentCategory);
+          const matchesSearch = currentSearchTerm === '' || title.includes(currentSearchTerm);
+
+          if (matchesCategory && matchesSearch) {
+            link.style.display = '';
+          } else {
+            link.style.display = 'none';
+          }
+        });
+      }
+
+      // Event listeners para categorias
+      const categoryLinks = document.querySelectorAll('.categories a');
+      categoryLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          // Remover classe active de todas
+          categoryLinks.forEach(l => l.classList.remove('active'));
+          // Adicionar active ao clicado
+          this.classList.add('active');
+          // Atualizar categoria atual
+          currentCategory = this.getAttribute('data-category');
+          // Aplicar filtros
+          applyFilters();
+        });
+      });
+
+      // Modificar funcionalidade de busca para trabalhar com filtros
+      searchInput.addEventListener('input', function() {
+        currentSearchTerm = searchInput.value.toLowerCase().trim();
+        applyFilters();
+      });
+
+      // Aplicar filtro inicial
+      applyFilters();
     });
   </script>
 </body>
