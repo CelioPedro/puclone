@@ -8,12 +8,6 @@ class AuthManager {
   // Salvar usuário no localStorage
   salvarUsuario(userData) {
     const users = this.obterUsuarios();
-    const userExists = users.find(user => user.email === userData.email);
-
-    if (userExists) {
-      throw new Error('Usuário já existe com este email');
-    }
-
     users.push(userData);
     localStorage.setItem(this.USERS_KEY, JSON.stringify(users));
   }

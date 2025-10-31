@@ -124,74 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// Fallback: also try to attach the event listener directly without waiting for DOMContentLoaded
-const btn = document.querySelector('.btn--primario');
-if (btn) {
-  console.log('Fallback: Button found directly');
-  btn.addEventListener('click', function(e) {
-    console.log('Fallback: Button clicked');
-    e.preventDefault();
 
-    const nome = document.getElementById('nome').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const cpf = document.getElementById('cpf').value.trim();
-    const contato = document.getElementById('contato').value.trim();
-    const endereco = document.getElementById('endereco').value.trim();
-    const senha = document.getElementById('password').value;
-    const confirmarSenha = document.getElementById('confirm-password').value;
-    const termos = document.getElementById('terms').checked;
-
-    console.log('Fallback: Form values:', { nome, email, cpf, contato, endereco, senha, confirmarSenha, termos });
-
-    let erros = [];
-
-    if (!nome) erros.push('Nome é obrigatório.');
-    if (!validarEmail(email)) erros.push('Email inválido.');
-    if (!validarCPF(cpf)) erros.push('CPF inválido.');
-    if (!validarTelefone(contato)) erros.push('Telefone inválido.');
-    if (!endereco) erros.push('Endereço é obrigatório.');
-    if (senha.length < 6) erros.push('Senha deve ter pelo menos 6 caracteres.');
-    if (senha !== confirmarSenha) erros.push('Senhas não coincidem.');
-    if (!termos) erros.push('Você deve aceitar os termos e condições.');
-
-    console.log('Fallback: Errors:', erros);
-
-    if (erros.length > 0) {
-      alert('Erros encontrados:\n' + erros.join('\n'));
-    } else {
-      // Criar objeto usuário
-      const novoUsuario = {
-        nome: nome,
-        email: email,
-        cpf: cpf,
-        contato: contato,
-        endereco: endereco,
-        senha: senha
-      };
-
-      console.log('Fallback: Creating user:', novoUsuario);
-
-      try {
-        // Salvar usuário
-        authManager.salvarUsuario(novoUsuario);
-        console.log('Fallback: User saved successfully');
-        // Mostrar confirmação no botão
-        const btn = document.querySelector('.btn--primario');
-        btn.textContent = 'Conta criada com sucesso';
-        btn.disabled = true;
-        // Redirecionar para login após 2 segundos
-        setTimeout(() => {
-          window.location.href = 'login.html';
-        }, 2000);
-      } catch (error) {
-        console.error('Fallback: Error saving user:', error);
-        alert('Erro no cadastro: ' + error.message);
-      }
-    }
-  });
-} else {
-  console.error('Fallback: Button not found');
-}
 
 // Toggle para mostrar/ocultar senha
 document.querySelectorAll('.input-field__eye').forEach(eye => {
