@@ -1,0 +1,30 @@
+# Nome do fluxo de trabalho
+name: Deploy GitHub Pages
+
+# Quando o fluxo de trabalho deve ser executado (após push ou merge na branch 'main')
+on:
+  push:
+    branches:
+      - main  # Altere para o nome da sua branch principal, se for diferente (ex: 'main' ou 'master')
+
+# Define as tarefas a serem executadas
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest  # O sistema operacional que rodará a tarefa
+
+    steps:
+    # 1. Checkout do código
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    # 2. Configura e faz o deploy do site
+    # Esta ação é a chave, pois ela permite especificar a sub-pasta (folder)
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        # TOKEN: Usa o token padrão do GitHub para autorização
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        # SOURCE_DIR: A PASTA onde estão o index.html e todos os seus arquivos
+        publish_dir: ./src  # <--- ESTE É O CAMINHO IMPORTANTE!
+        # Branch para onde os arquivos finais serão publicados (normalmente 'gh-pages')
+        publish_branch: gh-pages
