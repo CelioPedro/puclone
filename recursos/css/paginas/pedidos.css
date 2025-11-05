@@ -9,7 +9,7 @@ body {
 }
 
 .main-content {
-  padding-top: 1rem;
+  padding-top: 6rem;
   background-color: var(--color-background);
   width: 90vw;
   max-width: 800px;
@@ -31,6 +31,12 @@ body {
   text-align: center;
   font-weight: bold;
   width: 100%;
+  position: sticky;
+  top: 10rem; /* Below the fixed header */
+  background: var(--color-background);
+  z-index: 9;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 .tabs {
