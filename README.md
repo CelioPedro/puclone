@@ -1,5 +1,7 @@
 # Get Eats
 
+![Hello](docs/img/Capa0.png)
+
 `CURSO: Sistemas de Informação`
 
 `DISCIPLINA: Projeto - Aplicações Web`
