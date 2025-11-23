@@ -405,66 +405,46 @@
       }
 
       .main-content {
-        max-width: 500px;
+        max-width: 600px;
         margin: 0 auto;
       }
 
       .header {
-        height: 10rem;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 10rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 5.5rem;
+      z-index: 10;
+    }
+
+    .cart-items {
+        min-width: 500px;
       }
+
+    .order-summary, .delivery-address {
+        max-width: 500px;
+      }
+
+      .finalize-btn {
+        max-width: 500px;
+      }
+            
+
 
       .coupon-bar {
         top: 7rem;
+        max-width: 500px;
       }
 
       .main-content {
         padding-top: 12rem;
       }
 
-      .cart-items {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
-      }
-
-      .cart-item {
-        height: 20rem;
-        display: flex;
-        flex-direction: column;
-        background: white;
-        border-radius: 0.9375rem;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 0.9375rem;
-        position: relative;
-      }
-
-      .cart-item .image {
-        margin-top: -12px;
-        width: 114%;
-        height: 50%;
-        border-radius: 0.9375rem 0.9375rem 0 0;
-        background-size: cover;
-        background-position: center;
-        margin-bottom: 0.5rem;
-        margin-right: 0rem;
-      }
-
-      .cart-item .quantity {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 0.5rem;
-      }
-
-      .cart-item .details {
-        flex-grow: 1;
-        margin-bottom: 0.5rem;
-      }
-
-      .cart-item .qty-btn-tablet {
-        width: 100%;
-        position: static;
-        margin-top: 0.5rem;
-      }
     }
 
     @media (min-width: 820px) {
