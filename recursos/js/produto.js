@@ -177,11 +177,6 @@ function adicionarProdutoAoCarrinho() {
 
         // Feedback visual para o usuário
         mostrarFeedbackAdicao();
-
-        // Redirecionar para o carrinho após um breve delay
-        setTimeout(() => {
-            window.location.href = 'carrinho.html';
-        }, 1000);
     } else {
         console.error('Função adicionarAoCarrinho não encontrada. Verifique se carrinho.js foi carregado.');
     }
