@@ -352,3 +352,76 @@ body {
   height: 1.2rem;
   filter: brightness(0) invert(1);
 }
+
+/* Media Queries para Desktop */
+@media (min-width: 769px) {
+  .product-image {
+    width: 50% !important;
+    min-width: 500px !important;
+    max-width: 600px !important;
+    height: 70vh !important;
+    left: 2rem !important;
+    transform: none !important;
+    border-radius: 20px !important;
+    position: absolute !important;
+    top: 10vh !important;
+  }
+
+  .floating-icon {
+    bottom: -18px !important;
+    right: calc(2rem + 600px - 40px) !important; /* Ajustar posição baseada na largura máxima */
+  }
+
+  .discount-badge {
+    top: calc(10vh + 70vh + 2rem) !important;
+    left: 2rem !important;
+  }
+
+  .location-badge {
+    top: calc(10vh + 70vh + 2rem) !important;
+    left: 8rem !important;
+  }
+
+  .product-info {
+    top: 10vh !important;
+    left: calc(2rem + 600px + 2rem) !important;
+    right: 2rem !important;
+    max-width: calc(100vw - 2rem - 600px - 2rem - 2rem) !important;
+  }
+
+  .header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 10rem !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0 1rem !important;
+    z-index: 2 !important;
+  }
+
+  .footer-nav {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100px !important;
+    background: white !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0 2rem !important;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1) !important;
+    z-index: 10 !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .floating-icon {
+  bottom: -8px;
+  left: 4rem;
+  
+}
+}
