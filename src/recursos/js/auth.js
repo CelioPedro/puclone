@@ -3,6 +3,8 @@ class AuthManager {
   constructor() {
     this.USERS_KEY = 'geteats_users';
     this.CURRENT_USER_KEY = 'geteats_current_user';
+    this.ADMINS_KEY = 'geteats_admins';
+    this.CURRENT_ADMIN_KEY = 'geteats_current_admin';
   }
 
   // Salvar usuário no localStorage
@@ -59,6 +61,49 @@ class AuthManager {
     if (this.estaLogado()) {
       localStorage.setItem(this.CURRENT_USER_KEY, JSON.stringify(userData));
     }
+  }
+
+  // Salvar admin no localStorage
+  salvarAdmin(adminData) {
+    const admins = this.obterAdmins();
+    admins.push(adminData);
+    localStorage.setItem(this.ADMINS_KEY, JSON.stringify(admins));
+  }
+
+  // Obter todos os admins
+  obterAdmins() {
+    const admins = localStorage.getItem(this.ADMINS_KEY);
+    return admins ? JSON.parse(admins) : [];
+  }
+
+  // Verificar login de admin
+  verificarLoginAdmin(email, senha) {
+    const admins = this.obterAdmins();
+    const admin = admins.find(a => a.email === email && a.senha === senha);
+
+    if (admin) {
+      // Salvar admin logado
+      localStorage.setItem(this.CURRENT_ADMIN_KEY, JSON.stringify(admin));
+      return admin;
+    }
+
+    return null;
+  }
+
+  // Obter admin logado
+  obterAdminLogado() {
+    const admin = localStorage.getItem(this.CURRENT_ADMIN_KEY);
+    return admin ? JSON.parse(admin) : null;
+  }
+
+  // Verificar se admin está logado
+  adminEstaLogado() {
+    return this.obterAdminLogado() !== null;
+  }
+
+  // Logout admin
+  logoutAdmin() {
+    localStorage.removeItem(this.CURRENT_ADMIN_KEY);
   }
 }
 
