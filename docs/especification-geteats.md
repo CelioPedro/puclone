@@ -62,7 +62,6 @@ As tabelas que seguem apresentam os requisitos funcionais e não funcionais que 
 |RF-005| A aplicação deve permitir que os clientes façam pedidos com diferentes formas de pagamento | MÉDIA |
 |RF-006| A aplicação deve permitir acompanhamento de pedidos em tempo real | MÉDIA |
 |RF-007| A aplicação deve permitir que os clientes visualizem histórico de pedidos | MÉDIA |
-|RF-008| A aplicação deve oferecer interface responsiva para diferentes dispositivos | ALTA |
 
 
 ### Requisitos não Funcionais
